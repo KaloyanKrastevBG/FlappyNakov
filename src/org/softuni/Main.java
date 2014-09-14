@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 public class Main {
 
 	// basic config
+	public static final String PLAYER_IMAGE_NAME = "nakovTransparency.gif";
+	public static final String BACKGROUND_IMAGE_NAME = "Background.png";
 	public static final int GAME_FLOOR = 543; // sets the game floor
 	public static final int SCREEN_WIDTH = 600;
 	public static final int SCREEN_HEIGHT = 800;
@@ -21,15 +23,18 @@ public class Main {
 	public static final int PIPE_SPEED = 2;
 	public static final int PIPE_DISTANCE = 235;
 	public static final int GREEN_LINE_Y = Main.GAME_FLOOR + Player.getPlayerImg(
-			"playerMiddle.png").getHeight(null) - 13;
+			Main.PLAYER_IMAGE_NAME).getHeight(null) - 13;
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("FlappyNakov");
+		
 		frame.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
-		frame.add(new GameFrame());
+		frame.setFocusable(false);
+		frame.add(new GameFrame()); //this is panel not frame
 		frame.setResizable(false);
+		//
 
 	}
 
