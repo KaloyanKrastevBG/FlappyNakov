@@ -22,7 +22,7 @@ public class GameFrame extends JPanel implements ActionListener {
 	Timer mainTimer;
 	Pipe[] pipes = new Pipe[3];
 	private boolean gameOver = false;
-
+  
 	// setting up the game frame
 	public GameFrame() {
 		setFocusable(true);
@@ -37,6 +37,9 @@ public class GameFrame extends JPanel implements ActionListener {
 		addKeyListener(new KeyAdapt(player));
 		mainTimer = new Timer(Main.GAME_SPEED, this);
 		mainTimer.start();
+		
+		
+		Sound.play("birds1.wav");
 
 	}
 
