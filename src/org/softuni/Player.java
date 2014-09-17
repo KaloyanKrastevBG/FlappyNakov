@@ -1,5 +1,4 @@
 package org.softuni;
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -16,7 +15,6 @@ public class Player extends Entity {
 	private int speed = 0;
 	int velY = 0;
 	private int counter = 0;
-	private String playerImgName;
 	private int animationCounter = 0;
 	
 	public Player(int x, int y) {

@@ -4,20 +4,19 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class GameFrame extends JPanel implements ActionListener {
 
-	//test comment
+	/**
+	 * something needed for jPanel
+	 */
+	private static final long serialVersionUID = 1L;
 	Player player;
 	GreenLine greenLine;
 	GreenLine secondGreenLine;

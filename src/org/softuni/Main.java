@@ -31,7 +31,7 @@ public class Main {
 			+ Player.getPlayerImg(Main.PLAYER_IMAGE_NAME1).getHeight(null) - 13;
 
 	public static void main(String[] args) {
-		JFrame frame = new JFrame("FlappyNakov");
+		JFrame frame = new JFrame("SuperFlappyNakov by Dark Blue Team");
 
 		frame.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
