@@ -29,7 +29,7 @@ public class Pipe extends Entity {
 
 	//Pipe and hat drawing
 	public void draw(Graphics g) {
-		pipeY = Main.GAME_FLOOR + Player.getPlayerImg(Main.PLAYER_IMAGE_NAME).getHeight(null)
+		pipeY = Main.GAME_FLOOR + Player.getPlayerImg(Main.PLAYER_IMAGE_NAME1).getHeight(null)
 				- pipeHeight;
 		hatUpY = pipeY - Main.HAT_HEIGHT;
 		hatDownY = hatUpY - Main.PIPE_SPACING - Main.HAT_HEIGHT;

@@ -1,4 +1,5 @@
 package org.softuni;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -23,9 +24,7 @@ public class GameFrame extends JPanel implements ActionListener {
 	Pipe[] pipes = new Pipe[3];
 	private boolean gameOver = false;
 	public Score score;
-	
-	
-  
+
 	// setting up the game frame
 	public GameFrame() {
 		setFocusable(true);
@@ -34,20 +33,19 @@ public class GameFrame extends JPanel implements ActionListener {
 		player = new Player(Main.PLAYER_START_X, Main.PLAYER_START_Y);
 		score = new Score();
 		pipes[0] = (new Pipe(Main.SCREEN_WIDTH, 450, player, score));
-		pipes[1] = (new Pipe(Main.SCREEN_WIDTH + Main.PIPE_DISTANCE, 450, player, score));
-		pipes[2] = (new Pipe(Main.SCREEN_WIDTH + Main.PIPE_DISTANCE * 2, 450, player, score));
+		pipes[1] = (new Pipe(Main.SCREEN_WIDTH + Main.PIPE_DISTANCE, 450,
+				player, score));
+		pipes[2] = (new Pipe(Main.SCREEN_WIDTH + Main.PIPE_DISTANCE * 2, 450,
+				player, score));
 		greenLine = new GreenLine(0, Main.GREEN_LINE_Y);
 		secondGreenLine = new GreenLine(GreenLine.getLineImg().getWidth(null),
 				Main.GREEN_LINE_Y);
 		addKeyListener(new KeyAdapt(player));
 		mainTimer = new Timer(Main.GAME_SPEED, this);
 		mainTimer.start();
-		
-		
 		Sound.play("birds1.wav");
-
 	}
-
+@Override
 	// parameter of repaint()
 	public void paint(Graphics g) {
 		super.paint(g);
@@ -65,27 +63,28 @@ public class GameFrame extends JPanel implements ActionListener {
 		greenLine.lineMove();
 		secondGreenLine.lineMove();
 		printScore(g2d);
-		if(gameOver){
+		if (gameOver) {
 			gameOver(g2d);
 		}
-		
+
 	}
 
 	public void gameOver(Graphics2D g2d) {
 		g2d.setColor(Color.white);
-		//g2d.setFont(new Font("TimesRoman", Font.BOLD, 30)); 
+		// g2d.setFont(new Font("TimesRoman", Font.BOLD, 30));
 		Font font = new Font("Arial", Font.BOLD, 50);
 		g2d.setFont(font);
-		g2d.drawString("Game over ! ", (Main.SCREEN_WIDTH/2)-150, 200);
+		g2d.drawString("Game over ! ", (Main.SCREEN_WIDTH / 2) - 150, 200);
 	}
 
 	public void printScore(Graphics2D g2d) {
 		g2d.setColor(Color.white);
-		//g2d.setFont(new Font("TimesRoman", Font.BOLD, 30)); 
+		// g2d.setFont(new Font("TimesRoman", Font.BOLD, 30));
 		Font font = new Font("Arial", Font.BOLD, 50);
 		g2d.setFont(font);
-		g2d.drawString(score.getScore(), (Main.SCREEN_WIDTH/2)-20, 120);
+		g2d.drawString(score.getScore(), (Main.SCREEN_WIDTH / 2) - 20, 120);
 	}
+
 	@Override
 	// Game movement
 	public void actionPerformed(ActionEvent e) {
@@ -99,7 +98,7 @@ public class GameFrame extends JPanel implements ActionListener {
 			Rectangle[] enemyBoundaries = pipe.getEnemyBounds();
 			for (Rectangle rectangle : enemyBoundaries) {
 				if (player.getBounds().intersects(rectangle)
-						/*|| player.y >= Main.GAME_FLOOR*/) {
+				/* || player.y >= Main.GAME_FLOOR */) {
 					gameOver = true;
 					mainTimer.stop();
 				}
