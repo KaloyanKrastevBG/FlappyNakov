@@ -13,6 +13,7 @@ public class Player extends Entity {
 	private boolean isJump = false;
 	private int speed = 0;
 	int velY = 0;
+	private int counter = 0;
 	public Player(int x, int y) {
 		super(x, y);
 	}
@@ -20,11 +21,24 @@ public class Player extends Entity {
 	// Player moving
 	public void update() {
 		if(isJump){
-			speed = -Main.VERTICAL_SPEED;
+			speed = -Main.JUMP_SPEED;
 			isJump = false;
 		}
 		speed += Main.GRAVITY;
-		y += speed;
+		if(speed < Main.MAX_VERTICAL_SPEED){
+			y += speed;
+			//System.out.println("increesing"); //debug
+		}else if (counter < 50){
+			counter++;
+			y += Main.MAX_VERTICAL_SPEED;
+			//System.out.println("steady"); //debug
+		} else{
+			y += speed / 10;
+		
+			//System.out.println("more acceleration"); //debug
+		}
+		
+
 		if (y >= Main.GAME_FLOOR) {
 			y = Main.GAME_FLOOR;
 		}
@@ -34,13 +48,9 @@ public class Player extends Entity {
 		g2d.drawImage(getPlayerImg(Main.PLAYER_IMAGE_NAME), x, y,
 				getPlayerImg(Main.PLAYER_IMAGE_NAME).getWidth(null) / 2,
 				getPlayerImg(Main.PLAYER_IMAGE_NAME).getHeight(null), null);
-//		g2d.setColor(Color.white);
-//		g2d.draw(getBounds());
-	}
-
-	public void drawDeath(Graphics2D g2d) {
-		g2d.drawString("Game over ! ", 100, 100);
-
+		//player bounds debug
+		//g2d.setColor(Color.white);
+		//g2d.draw(getBounds());
 	}
 
 	public static Image getPlayerImg(String name) {
@@ -53,6 +63,7 @@ public class Player extends Entity {
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		if (key == KeyEvent.VK_SPACE) {
+			counter = 0;
 			isJump = true;
 		}
 		if (key == KeyEvent.VK_ESCAPE) {
@@ -71,7 +82,7 @@ public class Player extends Entity {
 	}
 
 	public Rectangle getBounds() {
-		return new Rectangle(x, y, getPlayerImg(Main.PLAYER_IMAGE_NAME).getWidth(
-				null) / 2, getPlayerImg(Main.PLAYER_IMAGE_NAME).getHeight(null));
+		return new Rectangle(x+10, y+10, (getPlayerImg(Main.PLAYER_IMAGE_NAME).getWidth(
+				null) / 2) - 20, getPlayerImg(Main.PLAYER_IMAGE_NAME).getHeight(null)-20);
 	}
 }

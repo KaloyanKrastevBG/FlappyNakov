@@ -1,4 +1,5 @@
 package org.softuni;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -33,7 +34,14 @@ public class Pipe extends Entity {
 		hatUpY = pipeY - Main.HAT_HEIGHT;
 		hatDownY = hatUpY - Main.PIPE_SPACING - Main.HAT_HEIGHT;
 		pipeUpHeight = hatDownY;
+
 		Graphics2D g2d = (Graphics2D) g;
+
+		//debugging
+		//g2d.setColor(Color.white);
+		//g2d.draw(getEnemyBounds()[1]);
+		//g2d.draw(getEnemyBounds()[2]);
+		
 		g2d.drawImage(getPipeImgs("hoodMiddle.png"), x, pipeY, Main.PIPE_WIDTH,
 				pipeHeight, null);
 		g2d.drawImage(getPipeImgs("hoodUp.png"), x - 12, hatUpY,
@@ -69,8 +77,8 @@ public class Pipe extends Entity {
 	public Rectangle[] getEnemyBounds() {
 		Rectangle[] enemyBounds = new Rectangle[4];
 		enemyBounds[0] = getBounds(x, pipeY, Main.PIPE_WIDTH, pipeHeight);
-		enemyBounds[1] = getBounds(x - 12, hatUpY, Main.HAT_WIDTH, Main.HAT_HEIGHT);
-		enemyBounds[2] = getBounds(x - 12, hatDownY, Main.HAT_WIDTH, Main.HAT_HEIGHT);
+		enemyBounds[1] = getBounds(x - 6, hatUpY + 3, Main.HAT_WIDTH-12, Main.HAT_HEIGHT-3);
+		enemyBounds[2] = getBounds(x - 6, hatDownY + 3, Main.HAT_WIDTH-12, Main.HAT_HEIGHT-3);
 		enemyBounds[3] = getBounds(x, 0, Main.PIPE_WIDTH, pipeUpHeight);
 		return enemyBounds;
 	}
