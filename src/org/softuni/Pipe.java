@@ -14,9 +14,15 @@ public class Pipe extends Entity {
 	private int hatUpY;
 	private int hatDownY;
 	private int pipeUpHeight;
+	private Player player;
+	private Score score;
+	private boolean scoreAdded = false;
 	
-	public Pipe(int x, int y) {
+	public Pipe(int x, int y, Player player, Score score) {
 		super(x, y);
+		this.player = player;
+		this.score = score;
+		
 		pipeHeight = Main.MIN_PIPE_HEIGHT + r.nextInt(Main.MAX_PIPE_HEIGHT);
 	}
 
@@ -51,12 +57,14 @@ public class Pipe extends Entity {
 		} else {
 			x = Main.SCREEN_WIDTH + 40;
 			pipeHeight = Main.MIN_PIPE_HEIGHT + r.nextInt(Main.MAX_PIPE_HEIGHT);
+			scoreAdded = false;
 		}
 	}
 	
 	private Rectangle getBounds(int x, int y, int height, int width) {
 		return new Rectangle(x, y, height, width);
 	}
+	
 	
 	public Rectangle[] getEnemyBounds() {
 		Rectangle[] enemyBounds = new Rectangle[4];
@@ -65,5 +73,11 @@ public class Pipe extends Entity {
 		enemyBounds[2] = getBounds(x - 12, hatDownY, Main.HAT_WIDTH, Main.HAT_HEIGHT);
 		enemyBounds[3] = getBounds(x, 0, Main.PIPE_WIDTH, pipeUpHeight);
 		return enemyBounds;
+	}
+	public void updateScore(){
+		if(this.x < player.x && scoreAdded == false){
+			score.increaseScore(1);
+			scoreAdded = true;
+		}
 	}
 }
