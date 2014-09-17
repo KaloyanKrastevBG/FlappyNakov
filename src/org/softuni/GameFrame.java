@@ -30,6 +30,7 @@ public class GameFrame extends JPanel implements ActionListener {
 	public GameFrame() {
 		setFocusable(true);
 		requestFocus();
+		requestFocusInWindow();
 		player = new Player(Main.PLAYER_START_X, Main.PLAYER_START_Y);
 		score = new Score();
 		pipes[0] = (new Pipe(Main.SCREEN_WIDTH, 450, player, score));

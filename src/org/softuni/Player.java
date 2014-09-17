@@ -34,11 +34,9 @@ public class Player extends Entity {
 			//System.out.println("steady"); //debug
 		} else{
 			y += speed / 10;
-		
 			//System.out.println("more acceleration"); //debug
 		}
 		
-
 		if (y >= Main.GAME_FLOOR) {
 			y = Main.GAME_FLOOR;
 		}

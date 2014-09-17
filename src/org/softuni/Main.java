@@ -31,10 +31,10 @@ public class Main {
 		
 		frame.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
 		frame.setFocusable(false);
 		frame.add(new GameFrame()); //this is panel not frame
 		frame.setResizable(false);
+		frame.setVisible(true);
 		//
 
 	}
