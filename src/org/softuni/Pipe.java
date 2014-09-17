@@ -85,6 +85,7 @@ public class Pipe extends Entity {
 	public void updateScore(){
 		if(this.x < player.x && scoreAdded == false){
 			score.increaseScore(1);
+			Sound.play("scoreSound.wav");
 			scoreAdded = true;
 		}
 	}

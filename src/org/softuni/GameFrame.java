@@ -75,6 +75,7 @@ public class GameFrame extends JPanel implements ActionListener {
 		Font font = new Font("Arial", Font.BOLD, 50);
 		g2d.setFont(font);
 		g2d.drawString("Game over ! ", (Main.SCREEN_WIDTH / 2) - 150, 200);
+		Sound.play("gameOver.wav");
 	}
 
 	public void printScore(Graphics2D g2d) {
@@ -98,7 +99,7 @@ public class GameFrame extends JPanel implements ActionListener {
 			Rectangle[] enemyBoundaries = pipe.getEnemyBounds();
 			for (Rectangle rectangle : enemyBoundaries) {
 				if (player.getBounds().intersects(rectangle)
-				/* || player.y >= Main.GAME_FLOOR */) {
+				 || player.y >= Main.GAME_FLOOR ) {
 					gameOver = true;
 					mainTimer.stop();
 				}
