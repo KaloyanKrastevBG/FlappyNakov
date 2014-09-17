@@ -61,6 +61,7 @@ public class Player extends Entity {
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		if (key == KeyEvent.VK_SPACE) {
+			System.out.println(KeyEvent.VK_SPACE);
 			counter = 0;
 			isJump = true;
 		}

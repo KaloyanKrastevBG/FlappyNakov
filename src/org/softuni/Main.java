@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 public class Main {
 
 	// basic config
-	public static final String PLAYER_IMAGE_NAME = "nakovTransparency.gif";
+	public static final String PLAYER_IMAGE_NAME = "playerUp.png";
 	public static final String BACKGROUND_IMAGE_NAME = "Background.gif";
 	public static final int GAME_FLOOR = 543; // sets the game floor
 	public static final int SCREEN_WIDTH = 600;
@@ -32,6 +32,7 @@ public class Main {
 		frame.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setFocusable(false);
+		frame.setLocationRelativeTo(null); 
 		frame.add(new GameFrame()); //this is panel not frame
 		frame.setResizable(false);
 		frame.setVisible(true);
