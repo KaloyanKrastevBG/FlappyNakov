@@ -24,7 +24,7 @@ public class Main {
 	public static final int PIPE_WIDTH = 29;
 	public static final int HAT_HEIGHT = 50;
 	public static final int HAT_WIDTH = 53;
-	public static final int PIPE_SPACING = 200;
+	public static final int PIPE_SPACING = 175;
 	public static final int PIPE_SPEED = 2;
 	public static final int PIPE_DISTANCE = 235;
 	public static final int GREEN_LINE_Y = Main.GAME_FLOOR
