@@ -5,7 +5,7 @@ public class Main {
 
 	// basic config
 	public static final String PLAYER_IMAGE_NAME = "nakovTransparency.gif";
-	public static final String BACKGROUND_IMAGE_NAME = "Background.png";
+	public static final String BACKGROUND_IMAGE_NAME = "Background.gif";
 	public static final int GAME_FLOOR = 543; // sets the game floor
 	public static final int SCREEN_WIDTH = 600;
 	public static final int SCREEN_HEIGHT = 800;
